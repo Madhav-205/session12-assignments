@@ -1,0 +1,59 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<title>Session12 - assignment1 </title>
+		<script src="js/angular.js" type="text/javascript"></script>
+		<script>
+			
+		var myApp = angular.module('myApp',[]);
+		myApp.controller('myController', function($scope, $filter){
+
+			$scope.userData = [ 
+									{name:'John', phone:'555-1276'},
+									{name:'Mary', phone:'555-1289'},
+									{name:'Mike', phone:'555-1234'},
+									{name:'Julie', phone:'555-6677'},
+									{name:'Julietter', phone:'555-7777'},
+							  ];
+		});
+			
+			
+			/*
+					myApp.controller('myController', function($scope, $filter){
+
+			$scope.heading = "type for capital words";
+
+		});
+
+		myApp.filter('capitalize', function(){
+
+			return function(input){
+				return input.toUpperCase();
+			}
+		});
+		
+					<input type="text" ng-model="name" init="asda">
+			<p> {{ name | capitalize }}</p>
+
+
+			*/
+		</script>
+		<body ng-controller="myController">
+		
+		<h1> Filters</h1>
+		
+		<label>Search: <input ng-model="searchText"></label>
+		
+		<table id="searchTextResults">
+			<tr>
+				<th>Name</th>
+				<th>Phone</th>
+			</tr>
+			<tr ng-repeat="users in userData | filter:searchText">
+				<td>{{ users.name}}</td>
+				<td>{{ users.phone}}</td>
+			</tr>
+		</table>
+		</body>
+	</head>
+	</html>

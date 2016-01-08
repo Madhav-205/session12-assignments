@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<title>Session12 - assignment3 </title>
+		<script src="js/angular.js" type="text/javascript"></script>
+		<script>
+			
+		var myApp = angular.module('myApp',[]);
+		myApp.controller('myController', function($scope, $filter){
+
+			$scope.sessionArray = [
+					{name:'John', phone:'555-1276',age:'41'},
+					{name:'Mary', phone:'555-1289',age:'18'},
+					{name:'Mike', phone:'555-1234',age:'74'},
+					{name:'Julie', phone:'555-6677',age:'45'},
+					{name:'Julietter', phone:'555-7777',age:'25'},
+				];
+			
+		});
+			
+			
+		</script>
+		<body ng-controller="myController">
+			
+			<h1>Display sorting order by input value: name or age or phone</h1>
+			<input type="text" ng-model="searchData">
+			
+			<table id="searchData">
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>Age</th>
+				</tr>
+				<tr ng-repeat="session in sessionArray | orderBy:searchData">
+					<td>{{ session.name}}</td>
+					<td>{{ session.phone }}</td>
+					<td>{{ session.age}}</td>
+				</tr>	
+			</table>
+		</body>
+	</head>
+	</html>

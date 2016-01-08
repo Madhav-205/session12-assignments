@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<title>Session12 - assignment2 </title>
+		<script src="js/angular.js" type="text/javascript"></script>
+		<script>
+			
+		var myApp = angular.module('myApp',[]);
+		myApp.controller('myController', function($scope, $filter){
+
+			$scope.numbers = $filter('limitTo')("4.557693.122",4);
+		});
+			
+			
+		</script>
+		<body ng-controller="myController">
+			
+			<h1>Display scope value in limit to 2 decimal points</h1>
+			<p> {{ numbers }}</p>
+		</body>
+	</head>
+	</html>
